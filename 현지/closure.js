@@ -93,21 +93,3 @@ outer5 = null; // outer식별자의 inner 함수 참조를 끊음
   };
   intervalId = setInterval(inner, 1000);
 })();
-
-function createCounter(startNumber) {
-  // 여기에 코드를 작성하세요
-  const initiate = startNumber;
-  return function () {
-    ++initiate;
-  };
-}
-
-// 아래 코드의 실행 결과를 예측해보세요
-const counter1 = createCounter(1);
-const counter2 = createCounter(10);
-
-console.log(counter1()); // ?
-console.log(counter1()); // ?
-console.log(counter2()); // ?
-console.log(counter1()); // ?
-console.log(counter2()); // ?
