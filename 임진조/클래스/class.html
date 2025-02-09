@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var Rectangle = function (width, height) {
+        this.width = width;
+        this.height = height;
+      };
+      // 프로토타입 함수(인스턴스)
+      Rectangle.prototype.getArea = function () {
+        return this.width * this.height;
+      };
+      // 스태틱 함수
+      // 스태틱 함수는 추상적인 클래스를 구체적 개체로 접근 할 수 있다.(인스턴스로 생성하지 않고 그냥 사용)
+      Rectangle.isRectangle = function (instance) {
+        return (
+          instance instanceof Rectangle &&
+          instance.width > 0 &&
+          instance.height > 0
+        );
+      };
+      var rect1 = new Rectangle(3, 4);
+      console.log(rect1.getArea()); // 12
+      console.log(rect1.isRectangle(rect1)); //error
+      console.log(Rectangle.isRectangle(rect1)); // true
+
+      class ES6 {
+        // 생성자 함수수
+        constructor(name) {
+          this.name = name;
+        }
+        // 정적 함수 -> ES6 자체에 붙어있음
+        static staticMethod() {
+          return this.name + " staticMethod";
+        }
+        // 프로토 타입 함수
+        method() {
+          return this.name + " method";
+        }
+      }
+
+      const es6Instance = new ES6("es6");
+
+      console.log(ES6.staticMethod()); // "es6 staticMethod"
+      console.log(es6Instance.method()); // "es6 method"
+    </script>
+  </body>
+</html>
