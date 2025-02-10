@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>콜백 함수</h1>
+    <p>호출 시점에 제어권이 넘어감</p>
+    <p>콜백 아규먼트에는 순서가 있다</p>
+    <p>this를 세팅한 경우가 있다(bind, call, apply)</p>
+    <script>
+      var obj = {
+        vals: [1, 2, 3],
+        logValues: function (v, i) {
+          console.log(this, v, i);
+        },
+      };
+      obj.logValues(1, 2);
+      [4, 5, 6].forEach(obj.logValues); // 함수로서 전달 window객체를 바라봄
+
+      var obj = {
+        name: "obj",
+        func: function () {
+          var self = this;
+          return function () {
+            console.log(self.name);
+          };
+        },
+      };
+      var callback = obj.func();
+      setTimeout(callback, 1000);
+
+      /* 콜백지옥 */
+      setTimeout(
+        function (name) {
+          var coffeeList = name;
+          console.log(coffeeList);
+          setTimeout(
+            function (name) {
+              coffeeList += ", " + name;
+              console.log(coffeeList);
+              setTimeout(
+                function (name) {
+                  coffeeList += ", " + name;
+                  console.log(coffeeList);
+                },
+                500,
+                "카페라떼"
+              );
+            },
+            500,
+            "아메리카노"
+          );
+        },
+        500,
+        "에스프레소"
+      );
+
+      /**
+       * Promise
+       */
+      new Promise(function (resolve) {
+        setTimeout(function () {
+          var name = "에스프레소";
+          console.log(name);
+          resolve(name);
+        }, 500);
+      }).then(function (prevName) {
+        return new Promise(function (resolve) {
+          setTimeout(function () {
+            var name = prevName + ", 아메리카노";
+            console.log(name);
+            resolve(name);
+          }, 500);
+        });
+      });
+
+      /**
+       * Promise 2
+       */
+      var addCoffee = function (name) {
+        // name
+        return function (prevName) {
+          // prevName
+          return new Promise(function (resolve) {
+            setTimeout(function () {
+              var newName = prevName ? prevName + ", " + name : name;
+              console.log(newName);
+              resolve(newName);
+            }, 500);
+          });
+        };
+      };
+      addCoffee("에스프레소")()
+        .then(addCoffee("아메리카노"))
+        .then(addCoffee("카페모카"));
+
+      function* generateSequence() {
+        yield 1;
+        yield 2;
+        return 3;
+      }
+      let generator = generateSequence();
+      alert(generator);
+    </script>
+  </body>
+</html>
