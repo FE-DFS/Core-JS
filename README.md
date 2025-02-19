@@ -3,10 +3,11 @@
 
 스터디 시작 (2024.01.22 ~ )
 
+
 ## 🧑🏻‍💻👩🏻‍💻 멤버 소개
-| <img src="https://avatars.githubusercontent.com/u/123517278?v=4"> | <img src="https://avatars.githubusercontent.com/u/86304360?v=4"> |<img src="https://avatars.githubusercontent.com/u/105118884?v=4">  |
-| :---------------------------------------------------------------: | :---------------------------------------------------------------: | :--------------------------------------------------------------: |
-|           [조현지](https://github.com/cindycho0423)           |         [채종민](https://github.com/JayChae)          |          [임진조](https://github.com/Sparrowlim)          |
+| <img src="https://avatars.githubusercontent.com/u/123517278?v=4"> | <img src="https://avatars.githubusercontent.com/u/86304360?v=4"> |<img src="https://avatars.githubusercontent.com/u/105118884?v=4">  |<img src="https://avatars.githubusercontent.com/u/99471821?v=4"> |
+| :---------------------------------------------------------------: | :---------------------------------------------------------------: | :--------------------------------------------------------------: | :---------------------------------------------------------------: |
+|           [조현지](https://github.com/cindycho0423)           |         [채종민](https://github.com/JayChae)          |          [임진조](https://github.com/Sparrowlim)          |           [한상우](https://github.com/Han-wo)  <br/> 중간시작 25.01.23           |
 
 ## ✨ 목표
 - 모던 자바스크립트와 병행하여 자바스크립트 기본 지식들을 깊이 있게 공부한다.
